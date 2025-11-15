@@ -1,0 +1,1292 @@
+
+# File: ./target/classes/application.properties
+server.port=8080
+
+# Actuator configuration
+management.endpoints.web.exposure.include=health,metrics,prometheus,info
+management.endpoint.health.show-details=always
+management.endpoint.prometheus.access=unrestricted
+management.info.env.enabled=true
+
+# Logging
+logging.level.com.example.sentimentaiproject=INFO
+logging.level.com.example.sentimentaiproject.model=DEBUG
+
+# Application info
+app.name=Sentiment Analysis AI
+app.version=1.0.0
+app.description=AI-powered text sentiment analysis with ONNX model
+
+# Model configuration
+model.path=model.onnx
+model.input-size=128text sentiment analysis service
+# File: ./target/surefire-reports/TEST-com.example.sentimentaiproject.SentimentAiProjectApplicationTests.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.example.sentimentaiproject.SentimentAiProjectApplicationTests" time="2.089" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/alladavletshina/study/sentiment-ai-project/sentiment-ai-project/target/test-classes:/Users/alladavletshina/study/sentiment-ai-project/sentiment-ai-project/target/classes:/Users/alladavletshina/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.5.7/spring-boot-starter-web-3.5.7.jar:/Users/alladavletshina/.m2/repository/org/springframework/boot/spring-boot-starter/3.5.7/spring-boot-starter-3.5.7.jar:/Users/alladavletshina/.m2/repository/org/springframework/boot/spring-boot/3.5.7/spring-boot-3.5.7.jar:/Users/alladavletshina/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.5.7/spring-boot-autoconfigure-3.5.7.jar:/Users/alladavletshina/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.5.7/spring-boot-starter-logging-3.5.7.jar:/Users/alladavletshina/.m2/repository/ch/qos/logback/logback-classic/1.5.20/logback-classic-1.5.20.jar:/Users/alladavletshina/.m2/repository/ch/qos/logback/logback-core/1.5.20/logback-core-1.5.20.jar:/Users/alladavletshina/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.24.3/log4j-to-slf4j-2.24.3.jar:/Users/alladavletshina/.m2/repository/org/apache/logging/log4j/log4j-api/2.24.3/log4j-api-2.24.3.jar:/Users/alladavletshina/.m2/repository/org/slf4j/jul-to-slf4j/2.0.17/jul-to-slf4j-2.0.17.jar:/Users/alladavletshina/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/Users/alladavletshina/.m2/repository/org/yaml/snakeyaml/2.4/snakeyaml-2.4.jar:/Users/alladavletshina/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.5.7/spring-boot-starter-json-3.5.7.jar:/Users/alladavletshina/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.19.2/jackson-databind-2.19.2.jar:/Users/alladavletshina/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.19.2/jackson-annotations-2.19.2.jar:/Users/alladavletshina/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.19.2/jackson-core-2.19.2.jar:/Users/alladavletshina/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.19.2/jackson-datatype-jdk8-2.19.2.jar:/Users/alladavletshina/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.19.2/jackson-datatype-jsr310-2.19.2.jar:/Users/alladavletshina/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.19.2/jackson-module-parameter-names-2.19.2.jar:/Users/alladavletshina/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.5.7/spring-boot-starter-tomcat-3.5.7.jar:/Users/alladavletshina/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.48/tomcat-embed-core-10.1.48.jar:/Users/alladavletshina/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.48/tomcat-embed-el-10.1.48.jar:/Users/alladavletshina/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.48/tomcat-embed-websocket-10.1.48.jar:/Users/alladavletshina/.m2/repository/org/springframework/spring-web/6.2.12/spring-web-6.2.12.jar:/Users/alladavletshina/.m2/repository/org/springframework/spring-beans/6.2.12/spring-beans-6.2.12.jar:/Users/alladavletshina/.m2/repository/org/springframework/spring-webmvc/6.2.12/spring-webmvc-6.2.12.jar:/Users/alladavletshina/.m2/repository/org/springframework/spring-aop/6.2.12/spring-aop-6.2.12.jar:/Users/alladavletshina/.m2/repository/org/springframework/spring-context/6.2.12/spring-context-6.2.12.jar:/Users/alladavletshina/.m2/repository/org/springframework/spring-expression/6.2.12/spring-expression-6.2.12.jar:/Users/alladavletshina/.m2/repository/org/springframework/boot/spring-boot-starter-actuator/3.5.7/spring-boot-starter-actuator-3.5.7.jar:/Users/alladavletshina/.m2/repository/org/springframework/boot/spring-boot-actuator-autoconfigure/3.5.7/spring-boot-actuator-autoconfigure-3.5.7.jar:/Users/alladavletshina/.m2/repository/org/springframework/boot/spring-boot-actuator/3.5.7/spring-boot-actuator-3.5.7.jar:/Users/alladavletshina/.m2/repository/io/micrometer/micrometer-observation/1.15.5/micrometer-observation-1.15.5.jar:/Users/alladavletshina/.m2/repository/io/micrometer/micrometer-commons/1.15.5/micrometer-commons-1.15.5.jar:/Users/alladavletshina/.m2/repository/io/micrometer/micrometer-jakarta9/1.15.5/micrometer-jakarta9-1.15.5.jar:/Users/alladavletshina/.m2/repository/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.jar:/Users/alladavletshina/.m2/repository/com/microsoft/onnxruntime/onnxruntime/1.16.0/onnxruntime-1.16.0.jar:/Users/alladavletshina/.m2/repository/io/micrometer/micrometer-registry-prometheus/1.15.5/micrometer-registry-prometheus-1.15.5.jar:/Users/alladavletshina/.m2/repository/io/micrometer/micrometer-core/1.15.5/micrometer-core-1.15.5.jar:/Users/alladavletshina/.m2/repository/org/hdrhistogram/HdrHistogram/2.2.2/HdrHistogram-2.2.2.jar:/Users/alladavletshina/.m2/repository/org/latencyutils/LatencyUtils/2.0.3/LatencyUtils-2.0.3.jar:/Users/alladavletshina/.m2/repository/io/prometheus/prometheus-metrics-core/1.3.10/prometheus-metrics-core-1.3.10.jar:/Users/alladavletshina/.m2/repository/io/prometheus/prometheus-metrics-model/1.3.10/prometheus-metrics-model-1.3.10.jar:/Users/alladavletshina/.m2/repository/io/prometheus/prometheus-metrics-config/1.3.10/prometheus-metrics-config-1.3.10.jar:/Users/alladavletshina/.m2/repository/io/prometheus/prometheus-metrics-tracer-common/1.3.10/prometheus-metrics-tracer-common-1.3.10.jar:/Users/alladavletshina/.m2/repository/io/prometheus/prometheus-metrics-exposition-formats/1.3.10/prometheus-metrics-exposition-formats-1.3.10.jar:/Users/alladavletshina/.m2/repository/io/prometheus/prometheus-metrics-exposition-textformats/1.3.10/prometheus-metrics-exposition-textformats-1.3.10.jar:/Users/alladavletshina/.m2/repository/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar:/Users/alladavletshina/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.5.7/spring-boot-starter-test-3.5.7.jar:/Users/alladavletshina/.m2/repository/org/springframework/boot/spring-boot-test/3.5.7/spring-boot-test-3.5.7.jar:/Users/alladavletshina/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.5.7/spring-boot-test-autoconfigure-3.5.7.jar:/Users/alladavletshina/.m2/repository/com/jayway/jsonpath/json-path/2.9.0/json-path-2.9.0.jar:/Users/alladavletshina/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/alladavletshina/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.4/jakarta.xml.bind-api-4.0.4.jar:/Users/alladavletshina/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.4/jakarta.activation-api-2.1.4.jar:/Users/alladavletshina/.m2/repository/net/minidev/json-smart/2.5.2/json-smart-2.5.2.jar:/Users/alladavletshina/.m2/repository/net/minidev/accessors-smart/2.5.2/accessors-smart-2.5.2.jar:/Users/alladavletshina/.m2/repository/org/ow2/asm/asm/9.7.1/asm-9.7.1.jar:/Users/alladavletshina/.m2/repository/org/assertj/assertj-core/3.27.6/assertj-core-3.27.6.jar:/Users/alladavletshina/.m2/repository/net/bytebuddy/byte-buddy/1.17.8/byte-buddy-1.17.8.jar:/Users/alladavletshina/.m2/repository/org/awaitility/awaitility/4.2.2/awaitility-4.2.2.jar:/Users/alladavletshina/.m2/repository/org/hamcrest/hamcrest/3.0/hamcrest-3.0.jar:/Users/alladavletshina/.m2/repository/org/junit/jupiter/junit-jupiter/5.12.2/junit-jupiter-5.12.2.jar:/Users/alladavletshina/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.12.2/junit-jupiter-api-5.12.2.jar:/Users/alladavletshina/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/alladavletshina/.m2/repository/org/junit/platform/junit-platform-commons/1.12.2/junit-platform-commons-1.12.2.jar:/Users/alladavletshina/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/alladavletshina/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.12.2/junit-jupiter-params-5.12.2.jar:/Users/alladavletshina/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.12.2/junit-jupiter-engine-5.12.2.jar:/Users/alladavletshina/.m2/repository/org/junit/platform/junit-platform-engine/1.12.2/junit-platform-engine-1.12.2.jar:/Users/alladavletshina/.m2/repository/org/mockito/mockito-core/5.17.0/mockito-core-5.17.0.jar:/Users/alladavletshina/.m2/repository/net/bytebuddy/byte-buddy-agent/1.17.8/byte-buddy-agent-1.17.8.jar:/Users/alladavletshina/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/alladavletshina/.m2/repository/org/mockito/mockito-junit-jupiter/5.17.0/mockito-junit-jupiter-5.17.0.jar:/Users/alladavletshina/.m2/repository/org/skyscreamer/jsonassert/1.5.3/jsonassert-1.5.3.jar:/Users/alladavletshina/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/Users/alladavletshina/.m2/repository/org/springframework/spring-core/6.2.12/spring-core-6.2.12.jar:/Users/alladavletshina/.m2/repository/org/springframework/spring-jcl/6.2.12/spring-jcl-6.2.12.jar:/Users/alladavletshina/.m2/repository/org/springframework/spring-test/6.2.12/spring-test-6.2.12.jar:/Users/alladavletshina/.m2/repository/org/xmlunit/xmlunit-core/2.10.4/xmlunit-core-2.10.4.jar:"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Europe/Moscow"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="RU"/>
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/lib"/>
+    <property name="sun.java.command" value="/Users/alladavletshina/study/sentiment-ai-project/sentiment-ai-project/target/surefire/surefirebooter-20251115125608674_3.jar /Users/alladavletshina/study/sentiment-ai-project/sentiment-ai-project/target/surefire 2025-11-15T12-56-08_635-jvmRun1 surefire-20251115125608674_1tmp surefire_0-20251115125608674_2tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/Users/alladavletshina/study/sentiment-ai-project/sentiment-ai-project/target/test-classes:/Users/alladavletshina/study/sentiment-ai-project/sentiment-ai-project/target/classes:/Users/alladavletshina/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.5.7/spring-boot-starter-web-3.5.7.jar:/Users/alladavletshina/.m2/repository/org/springframework/boot/spring-boot-starter/3.5.7/spring-boot-starter-3.5.7.jar:/Users/alladavletshina/.m2/repository/org/springframework/boot/spring-boot/3.5.7/spring-boot-3.5.7.jar:/Users/alladavletshina/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.5.7/spring-boot-autoconfigure-3.5.7.jar:/Users/alladavletshina/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.5.7/spring-boot-starter-logging-3.5.7.jar:/Users/alladavletshina/.m2/repository/ch/qos/logback/logback-classic/1.5.20/logback-classic-1.5.20.jar:/Users/alladavletshina/.m2/repository/ch/qos/logback/logback-core/1.5.20/logback-core-1.5.20.jar:/Users/alladavletshina/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.24.3/log4j-to-slf4j-2.24.3.jar:/Users/alladavletshina/.m2/repository/org/apache/logging/log4j/log4j-api/2.24.3/log4j-api-2.24.3.jar:/Users/alladavletshina/.m2/repository/org/slf4j/jul-to-slf4j/2.0.17/jul-to-slf4j-2.0.17.jar:/Users/alladavletshina/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/Users/alladavletshina/.m2/repository/org/yaml/snakeyaml/2.4/snakeyaml-2.4.jar:/Users/alladavletshina/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.5.7/spring-boot-starter-json-3.5.7.jar:/Users/alladavletshina/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.19.2/jackson-databind-2.19.2.jar:/Users/alladavletshina/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.19.2/jackson-annotations-2.19.2.jar:/Users/alladavletshina/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.19.2/jackson-core-2.19.2.jar:/Users/alladavletshina/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.19.2/jackson-datatype-jdk8-2.19.2.jar:/Users/alladavletshina/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.19.2/jackson-datatype-jsr310-2.19.2.jar:/Users/alladavletshina/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.19.2/jackson-module-parameter-names-2.19.2.jar:/Users/alladavletshina/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.5.7/spring-boot-starter-tomcat-3.5.7.jar:/Users/alladavletshina/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.48/tomcat-embed-core-10.1.48.jar:/Users/alladavletshina/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.48/tomcat-embed-el-10.1.48.jar:/Users/alladavletshina/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.48/tomcat-embed-websocket-10.1.48.jar:/Users/alladavletshina/.m2/repository/org/springframework/spring-web/6.2.12/spring-web-6.2.12.jar:/Users/alladavletshina/.m2/repository/org/springframework/spring-beans/6.2.12/spring-beans-6.2.12.jar:/Users/alladavletshina/.m2/repository/org/springframework/spring-webmvc/6.2.12/spring-webmvc-6.2.12.jar:/Users/alladavletshina/.m2/repository/org/springframework/spring-aop/6.2.12/spring-aop-6.2.12.jar:/Users/alladavletshina/.m2/repository/org/springframework/spring-context/6.2.12/spring-context-6.2.12.jar:/Users/alladavletshina/.m2/repository/org/springframework/spring-expression/6.2.12/spring-expression-6.2.12.jar:/Users/alladavletshina/.m2/repository/org/springframework/boot/spring-boot-starter-actuator/3.5.7/spring-boot-starter-actuator-3.5.7.jar:/Users/alladavletshina/.m2/repository/org/springframework/boot/spring-boot-actuator-autoconfigure/3.5.7/spring-boot-actuator-autoconfigure-3.5.7.jar:/Users/alladavletshina/.m2/repository/org/springframework/boot/spring-boot-actuator/3.5.7/spring-boot-actuator-3.5.7.jar:/Users/alladavletshina/.m2/repository/io/micrometer/micrometer-observation/1.15.5/micrometer-observation-1.15.5.jar:/Users/alladavletshina/.m2/repository/io/micrometer/micrometer-commons/1.15.5/micrometer-commons-1.15.5.jar:/Users/alladavletshina/.m2/repository/io/micrometer/micrometer-jakarta9/1.15.5/micrometer-jakarta9-1.15.5.jar:/Users/alladavletshina/.m2/repository/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.jar:/Users/alladavletshina/.m2/repository/com/microsoft/onnxruntime/onnxruntime/1.16.0/onnxruntime-1.16.0.jar:/Users/alladavletshina/.m2/repository/io/micrometer/micrometer-registry-prometheus/1.15.5/micrometer-registry-prometheus-1.15.5.jar:/Users/alladavletshina/.m2/repository/io/micrometer/micrometer-core/1.15.5/micrometer-core-1.15.5.jar:/Users/alladavletshina/.m2/repository/org/hdrhistogram/HdrHistogram/2.2.2/HdrHistogram-2.2.2.jar:/Users/alladavletshina/.m2/repository/org/latencyutils/LatencyUtils/2.0.3/LatencyUtils-2.0.3.jar:/Users/alladavletshina/.m2/repository/io/prometheus/prometheus-metrics-core/1.3.10/prometheus-metrics-core-1.3.10.jar:/Users/alladavletshina/.m2/repository/io/prometheus/prometheus-metrics-model/1.3.10/prometheus-metrics-model-1.3.10.jar:/Users/alladavletshina/.m2/repository/io/prometheus/prometheus-metrics-config/1.3.10/prometheus-metrics-config-1.3.10.jar:/Users/alladavletshina/.m2/repository/io/prometheus/prometheus-metrics-tracer-common/1.3.10/prometheus-metrics-tracer-common-1.3.10.jar:/Users/alladavletshina/.m2/repository/io/prometheus/prometheus-metrics-exposition-formats/1.3.10/prometheus-metrics-exposition-formats-1.3.10.jar:/Users/alladavletshina/.m2/repository/io/prometheus/prometheus-metrics-exposition-textformats/1.3.10/prometheus-metrics-exposition-textformats-1.3.10.jar:/Users/alladavletshina/.m2/repository/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar:/Users/alladavletshina/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.5.7/spring-boot-starter-test-3.5.7.jar:/Users/alladavletshina/.m2/repository/org/springframework/boot/spring-boot-test/3.5.7/spring-boot-test-3.5.7.jar:/Users/alladavletshina/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.5.7/spring-boot-test-autoconfigure-3.5.7.jar:/Users/alladavletshina/.m2/repository/com/jayway/jsonpath/json-path/2.9.0/json-path-2.9.0.jar:/Users/alladavletshina/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/alladavletshina/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.4/jakarta.xml.bind-api-4.0.4.jar:/Users/alladavletshina/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.4/jakarta.activation-api-2.1.4.jar:/Users/alladavletshina/.m2/repository/net/minidev/json-smart/2.5.2/json-smart-2.5.2.jar:/Users/alladavletshina/.m2/repository/net/minidev/accessors-smart/2.5.2/accessors-smart-2.5.2.jar:/Users/alladavletshina/.m2/repository/org/ow2/asm/asm/9.7.1/asm-9.7.1.jar:/Users/alladavletshina/.m2/repository/org/assertj/assertj-core/3.27.6/assertj-core-3.27.6.jar:/Users/alladavletshina/.m2/repository/net/bytebuddy/byte-buddy/1.17.8/byte-buddy-1.17.8.jar:/Users/alladavletshina/.m2/repository/org/awaitility/awaitility/4.2.2/awaitility-4.2.2.jar:/Users/alladavletshina/.m2/repository/org/hamcrest/hamcrest/3.0/hamcrest-3.0.jar:/Users/alladavletshina/.m2/repository/org/junit/jupiter/junit-jupiter/5.12.2/junit-jupiter-5.12.2.jar:/Users/alladavletshina/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.12.2/junit-jupiter-api-5.12.2.jar:/Users/alladavletshina/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/alladavletshina/.m2/repository/org/junit/platform/junit-platform-commons/1.12.2/junit-platform-commons-1.12.2.jar:/Users/alladavletshina/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/alladavletshina/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.12.2/junit-jupiter-params-5.12.2.jar:/Users/alladavletshina/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.12.2/junit-jupiter-engine-5.12.2.jar:/Users/alladavletshina/.m2/repository/org/junit/platform/junit-platform-engine/1.12.2/junit-platform-engine-1.12.2.jar:/Users/alladavletshina/.m2/repository/org/mockito/mockito-core/5.17.0/mockito-core-5.17.0.jar:/Users/alladavletshina/.m2/repository/net/bytebuddy/byte-buddy-agent/1.17.8/byte-buddy-agent-1.17.8.jar:/Users/alladavletshina/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/alladavletshina/.m2/repository/org/mockito/mockito-junit-jupiter/5.17.0/mockito-junit-jupiter-5.17.0.jar:/Users/alladavletshina/.m2/repository/org/skyscreamer/jsonassert/1.5.3/jsonassert-1.5.3.jar:/Users/alladavletshina/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/Users/alladavletshina/.m2/repository/org/springframework/spring-core/6.2.12/spring-core-6.2.12.jar:/Users/alladavletshina/.m2/repository/org/springframework/spring-jcl/6.2.12/spring-jcl-6.2.12.jar:/Users/alladavletshina/.m2/repository/org/springframework/spring-test/6.2.12/spring-test-6.2.12.jar:/Users/alladavletshina/.m2/repository/org/xmlunit/xmlunit-core/2.10.4/xmlunit-core-2.10.4.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/alladavletshina"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-07-15"/>
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/Users/alladavletshina/study/sentiment-ai-project/sentiment-ai-project"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="FILE_LOG_CHARSET" value="UTF-8"/>
+    <property name="java.awt.headless" value="true"/>
+    <property name="apple.awt.application.name" value="ForkedBooter"/>
+    <property name="surefire.real.class.path" value="/Users/alladavletshina/study/sentiment-ai-project/sentiment-ai-project/target/surefire/surefirebooter-20251115125608674_3.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.runtime.version" value="21.0.8+12-LTS-250"/>
+    <property name="user.name" value="alladavletshina"/>
+    <property name="stdout.encoding" value="UTF-8"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="26.1"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="/Users/alladavletshina/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="/var/folders/j1/x2wglf55713972z7sqrz6jbc0000gn/T/"/>
+    <property name="java.version" value="21.0.8"/>
+    <property name="user.dir" value="/Users/alladavletshina/study/sentiment-ai-project/sentiment-ai-project"/>
+    <property name="os.arch" value="aarch64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="PID" value="2227"/>
+    <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/Users/alladavletshina/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="21.0.8+12-LTS-250"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="contextLoads" classname="com.example.sentimentaiproject.SentimentAiProjectApplicationTests" time="0.357">
+    <system-out><![CDATA[12:56:09.006 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.sentimentaiproject.SentimentAiProjectApplicationTests]: SentimentAiProjectApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+12:56:09.059 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.sentimentaiproject.SentimentAiProjectApplication for test class com.example.sentimentaiproject.SentimentAiProjectApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.7)
+
+2025-11-15T12:56:09.237+03:00  INFO 2227 --- [           main] c.e.s.SentimentAiProjectApplicationTests : Starting SentimentAiProjectApplicationTests using Java 21.0.8 with PID 2227 (started by alladavletshina in /Users/alladavletshina/study/sentiment-ai-project/sentiment-ai-project)
+2025-11-15T12:56:09.237+03:00  INFO 2227 --- [           main] c.e.s.SentimentAiProjectApplicationTests : The following 1 profile is active: "dev"
+2025-11-15T12:56:10.301+03:00  WARN 2227 --- [           main] c.e.s.model.SentimentModel               : ⚠️ ONNX модель не найдена: model.onnx. Используется mock-анализатор
+❌ ONNX model not found, using enhanced mock analyzer
+💡 To use real model: Place model.onnx in resources directory
+2025-11-15T12:56:10.580+03:00  INFO 2227 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+2025-11-15T12:56:10.612+03:00  INFO 2227 --- [           main] c.e.s.SentimentAiProjectApplicationTests : Started SentimentAiProjectApplicationTests in 1.496 seconds (process running for 1.897)
+]]></system-out>
+    <system-err><![CDATA[Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (/Users/alladavletshina/.m2/repository/net/bytebuddy/byte-buddy-agent/1.17.8/byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+  </testcase>
+</testsuite>
+# File: ./pom.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.5.7</version>
+        <relativePath/>
+    </parent>
+    <groupId>com.example</groupId>
+    <artifactId>sentiment-ai-project</artifactId>
+    <version>0.0.1</version>
+    <name>sentiment-ai-project</name>
+    <description>sentiment-ai-project</description>
+    <url/>
+    <licenses>
+        <license/>
+    </licenses>
+    <developers>
+        <developer/>
+    </developers>
+    <scm>
+        <connection/>
+        <developerConnection/>
+        <tag/>
+        <url/>
+    </scm>
+    <properties>
+        <java.version>21</java.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.microsoft.onnxruntime</groupId>
+            <artifactId>onnxruntime</artifactId>
+            <version>1.16.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
+
+# File: ./kubernetes/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sentiment-ai-app
+  labels:
+    app: sentiment-ai
+    version: "1.0.0"
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sentiment-ai
+  template:
+    metadata:
+      labels:
+        app: sentiment-ai
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8080"
+        prometheus.io/path: "/actuator/prometheus"
+        prometheus.io/scheme: "http"
+    spec:
+      containers:
+        - name: sentiment-app
+          image: sentiment-ai-app:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              name: http
+          env:
+            - name: JAVA_OPTS
+              value: "-Xmx512m -Xms256m"
+          resources:
+            requests:
+              cpu: "200m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 3
+          startupProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            failureThreshold: 10
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sentiment-app-config
+data:
+  APPLICATION_NAME: "Sentiment Analysis AI"
+  APPLICATION_VERSION: "1.0.0"
+# File: ./kubernetes/ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sentiment-ai-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/proxy-body-size: "10m"
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: sentiment-ai-service
+                port:
+                  number: 80
+          - path: /actuator
+            pathType: Prefix
+            backend:
+              service:
+                name: sentiment-ai-service
+                port:
+                  number: 80
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: sentiment-ai-service
+                port:
+                  number: 80
+
+# File: ./kubernetes/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: sentiment-ai-service
+  labels:
+    app: sentiment-ai
+    service: sentiment-ai
+spec:
+  selector:
+    app: sentiment-ai
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
+      protocol: TCP
+  type: LoadBalancer
+---
+# Альтернативный сервис для мониторинга Prometheus
+apiVersion: v1
+kind: Service
+metadata:
+  name: sentiment-ai-metrics
+  labels:
+    app: sentiment-ai
+    service: metrics
+spec:
+  selector:
+    app: sentiment-ai
+  ports:
+    - name: metrics
+      port: 8080
+      targetPort: 8080
+      protocol: TCP
+  type: ClusterIP
+# File: ./kubernetes/hpa.yaml
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: sentiment-ai-hpa
+  labels:
+    app: sentiment-ai
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: sentiment-ai-app
+  minReplicas: 3
+  maxReplicas: 10
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 50
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 70
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 300
+      policies:
+        - type: Percent
+          value: 50
+          periodSeconds: 60
+        - type: Pods
+          value: 2
+          periodSeconds: 60
+      selectPolicy: Min
+    scaleUp:
+      stabilizationWindowSeconds: 60
+      policies:
+        - type: Percent
+          value: 100
+          periodSeconds: 15
+        - type: Pods
+          value: 4
+          periodSeconds: 15
+      selectPolicy: Max
+# File: ./.idea/encodings.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+  </component>
+</project>
+# File: ./.idea/jarRepositories.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteRepositoriesConfiguration">
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Maven Central repository" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jboss.community" />
+      <option name="name" value="JBoss Community repository" />
+      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+  </component>
+</project>
+# File: ./.idea/workspace.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7bfe227a-cc89-4777-a46d-bd5febc77ad7" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="35VYKFHLHOq27Qbv04TZknlSqhg" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "Spring Boot.SentimentAiProjectApplication.executor": "Run",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="SentimentAiProjectApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="sentiment-ai-project" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.sentimentaiproject.SentimentAiProjectApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.23892.409" />
+        <option value="bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-IU-252.23892.409" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7bfe227a-cc89-4777-a46d-bd5febc77ad7" name="Changes" comment="" />
+      <created>1763196640316</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1763196640316</updated>
+      <workItem from="1763196641892" duration="3844000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
+# File: ./.idea/misc.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="21" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>
+# File: ./.idea/compiler.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Annotation profile for sentiment-ai-project" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
+        </processorPath>
+        <module name="sentiment-ai-project" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="sentiment-ai-project" options="-parameters" />
+    </option>
+  </component>
+</project>
+# File: ./src/test/java/com/example/sentimentaiproject/SentimentAiProjectApplicationTests.java
+package com.example.sentimentaiproject;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class SentimentAiProjectApplicationTests {
+
+    @Test
+    void contextLoads() {
+    }
+
+}
+
+# File: ./src/main/resources/application.properties
+server.port=8080
+
+# Actuator configuration
+management.endpoints.web.exposure.include=health,metrics,prometheus,info
+management.endpoint.health.show-details=always
+management.endpoint.prometheus.access=unrestricted
+management.info.env.enabled=true
+
+# Logging
+logging.level.com.example.sentimentaiproject=INFO
+logging.level.com.example.sentimentaiproject.model=DEBUG
+
+# Application info
+app.name=Sentiment Analysis AI
+app.version=1.0.0
+app.description=AI-powered text sentiment analysis with ONNX model
+
+# Model configuration
+model.path=model.onnx
+model.input-size=128text sentiment analysis service
+# File: ./src/main/java/com/example/sentimentaiproject/dto/SentimentResponse.java
+package com.example.sentimentaiproject.dto;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+
+@Data
+@AllArgsConstructor
+public class SentimentResponse {
+    private String text;
+    private String sentiment;
+    private float confidence;
+    private boolean modelUsed;
+
+    public String getText() { return text; }
+    public void setText(String text) { this.text = text; }
+    public String getSentiment() { return sentiment; }
+    public void setSentiment(String sentiment) { this.sentiment = sentiment; }
+    public float getConfidence() { return confidence; }
+    public void setConfidence(float confidence) { this.confidence = confidence; }
+    public boolean isModelUsed() { return modelUsed; }
+    public void setModelUsed(boolean modelUsed) { this.modelUsed = modelUsed; }
+}
+# File: ./src/main/java/com/example/sentimentaiproject/dto/BatchTextRequest.java
+package com.example.sentimentaiproject.dto;
+
+import lombok.Data;
+
+@Data
+public class BatchTextRequest {
+    private String[] texts;
+}
+
+# File: ./src/main/java/com/example/sentimentaiproject/dto/BatchSentimentResponse.java
+package com.example.sentimentaiproject.dto;
+import lombok.Data;
+import java.util.Map;
+
+@Data
+public class BatchSentimentResponse {
+    private Map<String, String> results;
+    private String status;
+}
+
+# File: ./src/main/java/com/example/sentimentaiproject/config/ActuatorConfig.java
+    package com.example.sentimentaiproject.config;
+
+    import io.micrometer.core.instrument.Counter;
+    import io.micrometer.core.instrument.Timer;
+    import io.micrometer.core.instrument.Gauge;
+    import io.micrometer.core.instrument.binder.MeterBinder;
+    import org.springframework.context.annotation.Bean;
+    import org.springframework.context.annotation.Configuration;
+
+    import java.util.concurrent.atomic.AtomicInteger;
+    import java.util.concurrent.atomic.AtomicLong;
+
+    /**
+     * Конфигурация Spring Boot Actuator для мониторинга и метрик
+     */
+    @Configuration
+    public class ActuatorConfig {
+
+        // Счетчики для метрик
+        private final AtomicInteger totalRequests = new AtomicInteger(0);
+        private final AtomicInteger successfulRequests = new AtomicInteger(0);
+        private final AtomicLong analysisDuration = new AtomicLong(0);
+
+        /**
+         * Кастомные метрики для приложения
+         */
+        @Bean
+        public MeterBinder sentimentMetrics() {
+            return registry -> {
+                // Метрика для отслеживания количества анализов
+                Gauge.builder("sentiment.analysis.requests.total", totalRequests, AtomicInteger::get)
+                        .description("Общее количество запросов на анализ тональности")
+                        .register(registry);
+
+                // Метрика для успешных анализов
+                Gauge.builder("sentiment.analysis.requests.successful", successfulRequests, AtomicInteger::get)
+                        .description("Количество успешных анализов")
+                        .register(registry);
+
+                // Метрика для времени ответа
+                Gauge.builder("sentiment.analysis.duration.milliseconds", analysisDuration, AtomicLong::get)
+                        .description("Суммарное время выполнения анализов в миллисекундах")
+                        .register(registry);
+
+                // Counter для общего количества запросов
+                Counter.builder("sentiment.analysis.counter.total")
+                        .description("Счетчик общего количества запросов")
+                        .register(registry);
+
+                // Timer для времени выполнения
+                Timer.builder("sentiment.analysis.timer")
+                        .description("Таймер выполнения анализа тональности")
+                        .register(registry);
+            };
+        }
+
+        /**
+         * Методы для обновления метрик
+         */
+        public void incrementTotalRequests() {
+            totalRequests.incrementAndGet();
+        }
+
+        public void incrementSuccessfulRequests() {
+            successfulRequests.incrementAndGet();
+        }
+
+        public void recordAnalysisDuration(long durationMs) {
+            analysisDuration.addAndGet(durationMs);
+        }
+
+        /**
+         * Получение текущих значений метрик
+         */
+        public int getTotalRequests() {
+            return totalRequests.get();
+        }
+
+        public int getSuccessfulRequests() {
+            return successfulRequests.get();
+        }
+
+        public long getAnalysisDuration() {
+            return analysisDuration.get();
+        }
+    }
+# File: ./src/main/java/com/example/sentimentaiproject/SentimentAiProjectApplication.java
+package com.example.sentimentaiproject;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SentimentAiProjectApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(SentimentAiProjectApplication.class, args);
+    }
+
+}
+
+# File: ./src/main/java/com/example/sentimentaiproject/controller/SentimentController.java
+package com.example.sentimentaiproject.controller;
+
+import com.example.sentimentaiproject.dto.SentimentResponse;
+import com.example.sentimentaiproject.model.SentimentModel;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@RestController
+@RequestMapping("/api")
+public class SentimentController {
+
+    @Autowired
+    private SentimentModel sentimentModel;
+
+    @GetMapping("/sentiment")
+    public SentimentResponse analyzeSentiment(@RequestParam String text) {
+        SentimentModel.SentimentResult result = sentimentModel.analyzeWithModel(text);
+        return new SentimentResponse(
+                result.getText(),
+                result.getSentiment(),
+                result.getConfidence(),
+                result.isModelUsed()
+        );
+    }
+
+    @GetMapping("/model/info")
+    public Map<String, Object> getModelInfo() {
+        SentimentModel.ModelInfo modelInfo = sentimentModel.getModelInfo();
+        Map<String, Object> info = new HashMap<>();
+        info.put("modelPath", modelInfo.getModelPath());
+        info.put("modelLoaded", modelInfo.isLoaded());
+        info.put("inputSize", modelInfo.getInputSize());
+        info.put("numInputs", modelInfo.getNumInputs());
+        info.put("numOutputs", modelInfo.getNumOutputs());
+        return info;
+    }
+
+    @GetMapping("/health")
+    public Map<String, String> health() {
+        Map<String, String> status = new HashMap<>();
+        status.put("status", "UP");
+        status.put("service", "Sentiment Analysis API");
+        status.put("modelStatus", sentimentModel.isModelLoaded() ? "LOADED" : "MOCK");
+        return status;
+    }
+}
+# File: ./src/main/java/com/example/sentimentaiproject/model/SentimentModel.java
+package com.example.sentimentaiproject.model;
+
+import ai.onnxruntime.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import java.util.Collections;
+import java.util.Map;
+
+/**
+ * Компонент для работы с ONNX моделью анализа тональности
+ */
+@Component
+public class SentimentModel {
+
+    private static final Logger logger = LoggerFactory.getLogger(SentimentModel.class);
+
+    private OrtEnvironment environment;
+    private OrtSession session;
+    private boolean modelLoaded = false;
+
+    // Конфигурация модели
+    private final String MODEL_PATH = "model.onnx";
+    private final int INPUT_SIZE = 128; // Размер входного вектора
+
+    @PostConstruct
+    public void init() {
+        try {
+            environment = OrtEnvironment.getEnvironment();
+
+            // Попытка загрузить модель из classpath
+            var modelUrl = getClass().getClassLoader().getResource(MODEL_PATH);
+            if (modelUrl != null) {
+                session = environment.createSession(modelUrl.getPath());
+                modelLoaded = true;
+                logger.info("✅ ONNX модель успешно загружена: {}", MODEL_PATH);
+            } else {
+                logger.warn("⚠️ ONNX модель не найдена: {}. Используется mock-анализатор", MODEL_PATH);
+                modelLoaded = false;
+            }
+        } catch (Exception e) {
+            logger.error("❌ Ошибка загрузки ONNX модели: {}", e.getMessage());
+            modelLoaded = false;
+        }
+    }
+
+    /**
+     * Анализ тональности текста с использованием ONNX модели
+     */
+    public SentimentResult analyzeWithModel(String text) {
+        if (!modelLoaded) {
+            return fallbackAnalysis(text);
+        }
+
+        try {
+            // Препроцессинг текста
+            float[] inputData = preprocessText(text);
+            long[] shape = {1, inputData.length};
+
+            // Создание входного тензора
+            OnnxTensor inputTensor = OnnxTensor.createTensor(environment, inputData);
+            Map<String, OnnxTensor> inputs = Collections.singletonMap("input", inputTensor);
+
+            // Выполнение инференса
+            try (OrtSession.Result results = session.run(inputs)) {
+                OnnxTensor outputTensor = (OnnxTensor) results.get(0);
+                float[] predictions = (float[]) outputTensor.getValue();
+
+                SentimentResult result = interpretModelOutput(predictions, text);
+                inputTensor.close();
+
+                return result;
+            }
+        } catch (Exception e) {
+            logger.error("Ошибка при анализе текста моделью: {}", e.getMessage());
+            return fallbackAnalysis(text);
+        }
+    }
+
+    /**
+     * Препроцессинг текста для модели
+     */
+    private float[] preprocessText(String text) {
+        // Упрощенный препроцессинг - в реальном проекте используйте нормализацию, токенизацию и т.д.
+        String cleaned = text.toLowerCase()
+                .replaceAll("[^a-zA-Zа-яА-Я0-9\\s]", "")
+                .trim();
+
+        float[] features = new float[INPUT_SIZE];
+
+        // Простая векторизация на основе хэшей слов
+        String[] words = cleaned.split("\\s+");
+        for (int i = 0; i < Math.min(words.length, INPUT_SIZE); i++) {
+            if (!words[i].isEmpty()) {
+                features[i] = (words[i].hashCode() % 1000) / 1000.0f;
+            }
+        }
+
+        // Заполнение оставшихся позиций
+        for (int i = words.length; i < INPUT_SIZE; i++) {
+            features[i] = 0.0f;
+        }
+
+        return features;
+    }
+
+    /**
+     * Интерпретация выхода модели
+     */
+    private SentimentResult interpretModelOutput(float[] predictions, String originalText) {
+        if (predictions == null || predictions.length < 3) {
+            return fallbackAnalysis(originalText);
+        }
+
+        // Предполагаем формат выхода: [negative, neutral, positive]
+        float negativeScore = predictions.length > 0 ? predictions[0] : 0.0f;
+        float neutralScore = predictions.length > 1 ? predictions[1] : 0.0f;
+        float positiveScore = predictions.length > 2 ? predictions[2] : 0.0f;
+
+        String sentiment;
+        float confidence;
+
+        if (positiveScore > negativeScore && positiveScore > neutralScore) {
+            sentiment = "positive";
+            confidence = positiveScore;
+        } else if (negativeScore > positiveScore && negativeScore > neutralScore) {
+            sentiment = "negative";
+            confidence = negativeScore;
+        } else {
+            sentiment = "neutral";
+            confidence = neutralScore;
+        }
+
+        return new SentimentResult(originalText, sentiment, confidence, true);
+    }
+
+    /**
+     * Резервный анализ на основе ключевых слов
+     */
+    private SentimentResult fallbackAnalysis(String text) {
+        String lowerText = text.toLowerCase();
+
+        // Расширенный словарь ключевых слов
+        String[] positiveWords = {"good", "great", "excellent", "amazing", "happy", "love",
+                "awesome", "fantastic", "perfect", "wonderful", "best",
+                "beautiful", "brilliant", "outstanding", "superb"};
+
+        String[] negativeWords = {"bad", "terrible", "horrible", "awful", "hate", "sad",
+                "worst", "disappointing", "poor", "unhappy", "angry",
+                "hateful", "disgusting", "annoying", "frustrating"};
+
+        // Подсчет совпадений
+        int positiveCount = countMatches(lowerText, positiveWords);
+        int negativeCount = countMatches(lowerText, negativeWords);
+
+        String sentiment;
+        float confidence;
+
+        if (positiveCount > negativeCount) {
+            sentiment = "positive";
+            confidence = Math.min(positiveCount / 10.0f, 1.0f);
+        } else if (negativeCount > positiveCount) {
+            sentiment = "negative";
+            confidence = Math.min(negativeCount / 10.0f, 1.0f);
+        } else {
+            sentiment = "neutral";
+            confidence = 0.5f;
+        }
+
+        return new SentimentResult(text, sentiment, confidence, false);
+    }
+
+    private int countMatches(String text, String[] words) {
+        int count = 0;
+        for (String word : words) {
+            if (text.contains(word)) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    /**
+     * Проверка загружена ли модель
+     */
+    public boolean isModelLoaded() {
+        return modelLoaded;
+    }
+
+    /**
+     * Получение информации о модели
+     */
+    public ModelInfo getModelInfo() {
+        return new ModelInfo(
+                MODEL_PATH,
+                modelLoaded,
+                INPUT_SIZE,
+                Math.toIntExact(session != null ? session.getNumInputs() : 0),
+                Math.toIntExact(session != null ? session.getNumOutputs() : 0)
+        );
+    }
+
+    @PreDestroy
+    public void cleanup() {
+        try {
+            if (session != null) {
+                session.close();
+                logger.info("✅ ONNX сессия закрыта");
+            }
+            if (environment != null) {
+                environment.close();
+                logger.info("✅ ONNX окружение закрыто");
+            }
+        } catch (Exception e) {
+            logger.error("Ошибка при очистке ресурсов модели: {}", e.getMessage());
+        }
+    }
+
+    /**
+     * Результат анализа тональности
+     */
+    public static class SentimentResult {
+        private final String text;
+        private final String sentiment;
+        private final float confidence;
+        private final boolean modelUsed;
+
+        public SentimentResult(String text, String sentiment, float confidence, boolean modelUsed) {
+            this.text = text;
+            this.sentiment = sentiment;
+            this.confidence = confidence;
+            this.modelUsed = modelUsed;
+        }
+
+        // Getters
+        public String getText() { return text; }
+        public String getSentiment() { return sentiment; }
+        public float getConfidence() { return confidence; }
+        public boolean isModelUsed() { return modelUsed; }
+    }
+
+    /**
+     * Информация о модели
+     */
+    public static class ModelInfo {
+        private final String modelPath;
+        private final boolean loaded;
+        private final int inputSize;
+        private final int numInputs;
+        private final int numOutputs;
+
+        public ModelInfo(String modelPath, boolean loaded, int inputSize, int numInputs, int numOutputs) {
+            this.modelPath = modelPath;
+            this.loaded = loaded;
+            this.inputSize = inputSize;
+            this.numInputs = numInputs;
+            this.numOutputs = numOutputs;
+        }
+
+        // Getters
+        public String getModelPath() { return modelPath; }
+        public boolean isLoaded() { return loaded; }
+        public int getInputSize() { return inputSize; }
+        public int getNumInputs() { return numInputs; }
+        public int getNumOutputs() { return numOutputs; }
+    }
+}
+
+# File: ./src/main/java/com/example/sentimentaiproject/service/SentimentService.java
+package com.example.sentimentaiproject.service;
+
+import ai.onnxruntime.*;
+import org.springframework.stereotype.Service;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import java.nio.FloatBuffer;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+
+@Service
+public class SentimentService {
+
+    private OrtEnvironment environment;
+    private OrtSession session;
+    private boolean modelLoaded = false;
+
+    // Кэш для результатов анализа (упрощает нагрузочное тестирование)
+    private final Map<String, String> analysisCache = new ConcurrentHashMap<>();
+
+    @PostConstruct
+    public void init() {
+        try {
+            environment = OrtEnvironment.getEnvironment();
+            // Попытка загрузить ONNX модель
+            session = environment.createSession("model.onnx", new OrtSession.SessionOptions());
+            modelLoaded = true;
+            System.out.println("✅ ONNX model loaded successfully");
+        } catch (Exception e) {
+            System.out.println("❌ ONNX model not found, using enhanced mock analyzer");
+            System.out.println("💡 To use real model: Place model.onnx in resources directory");
+            modelLoaded = false;
+        }
+    }
+
+    public String analyze(String text, String method) {
+        // Проверка кэша
+        String cacheKey = text.toLowerCase().trim();
+        if (analysisCache.containsKey(cacheKey)) {
+            return analysisCache.get(cacheKey);
+        }
+
+        String sentiment;
+        try {
+            if (modelLoaded && "onnx".equals(method)) {
+                sentiment = analyzeWithONNX(text);
+            } else {
+                sentiment = enhancedAnalyze(text);
+            }
+        } catch (Exception e) {
+            sentiment = enhancedAnalyze(text); // Fallback
+        }
+
+        // Сохранение в кэш
+        analysisCache.put(cacheKey, sentiment);
+        return sentiment;
+    }
+
+    public Map<String, String> analyzeBatch(String[] texts) {
+        Map<String, String> results = new HashMap<>();
+        for (String text : texts) {
+            results.put(text, analyze(text, "auto"));
+        }
+        return results;
+    }
+
+    private String analyzeWithONNX(String text) throws OrtException {
+        try {
+            // Препроцессинг текста
+            float[] inputData = preprocessTextForONNX(text);
+            long[] shape = {1, inputData.length};
+
+            // Создание входного тензора
+            OnnxTensor inputTensor = OnnxTensor.createTensor(environment, FloatBuffer.wrap(inputData), shape);
+            Map<String, OnnxTensor> inputs = Collections.singletonMap("input", inputTensor);
+
+            // Выполнение инференса
+            try (OrtSession.Result results = session.run(inputs)) {
+                OnnxTensor outputTensor = (OnnxTensor) results.get(0);
+                float[] predictions = (float[]) outputTensor.getValue();
+                return interpretONNXPrediction(predictions);
+            } finally {
+                inputTensor.close();
+            }
+        } catch (Exception e) {
+            throw new OrtException("ONNX inference failed: " + e.getMessage());
+        }
+    }
+
+    private String enhancedAnalyze(String text) {
+        text = text.toLowerCase().trim();
+
+        // Расширенный анализ на основе ключевых слов и контекста
+        Map<String, Integer> positiveWords = Map.ofEntries(
+                Map.entry("good", 2),
+                Map.entry("great", 3),
+                Map.entry("excellent", 4),
+                Map.entry("amazing", 3),
+                Map.entry("happy", 2),
+                Map.entry("love", 3),
+                Map.entry("awesome", 3),
+                Map.entry("fantastic", 3),
+                Map.entry("perfect", 4),
+                Map.entry("wonderful", 3),
+                Map.entry("best", 3),
+                Map.entry("beautiful", 2)
+        );
+
+        Map<String, Integer> negativeWords = Map.ofEntries(
+                Map.entry("bad", 2),
+                Map.entry("terrible", 4),
+                Map.entry("hate", 3),
+                Map.entry("awful", 3),
+                Map.entry("sad", 2),
+                Map.entry("horrible", 4),
+                Map.entry("worst", 4),
+                Map.entry("disappointing", 3),
+                Map.entry("poor", 2),
+                Map.entry("unhappy", 2),
+                Map.entry("angry", 2),
+                Map.entry("hateful", 3)
+        );
+
+        int positiveScore = calculateSentimentScore(text, positiveWords);
+        int negativeScore = calculateSentimentScore(text, negativeWords);
+
+        // Анализ усилителей и отрицаний
+        double adjustedScore = adjustScoreWithContext(text, positiveScore - negativeScore);
+
+        if (adjustedScore > 1.5) return "positive";
+        else if (adjustedScore < -1.5) return "negative";
+        else return "neutral";
+    }
+
+    private int calculateSentimentScore(String text, Map<String, Integer> wordScores) {
+        int score = 0;
+        for (Map.Entry<String, Integer> entry : wordScores.entrySet()) {
+            if (text.contains(entry.getKey())) {
+                score += entry.getValue();
+            }
+        }
+        return score;
+    }
+
+    private double adjustScoreWithContext(String text, int baseScore) {
+        double adjustment = baseScore;
+
+        // Усилители
+        if (text.contains("very") || text.contains("really") || text.contains("extremely")) {
+            adjustment *= 1.5;
+        }
+
+        // Отрицания
+        if (text.contains("not ") || text.contains("no ") || text.contains("never ")) {
+            adjustment *= -0.7;
+        }
+
+        // Восклицательные знаки (показывают эмоциональную окраску)
+        long exclamationCount = text.chars().filter(ch -> ch == '!').count();
+        adjustment += exclamationCount * 0.3;
+
+        return adjustment;
+    }
+
+    private float[] preprocessTextForONNX(String text) {
+        String cleaned = text.toLowerCase()
+                .replaceAll("[^a-zA-Z\\s]", "")
+                .trim();
+
+        // Создание фиксированного размера вектора признаков
+        float[] features = new float[128];
+        Arrays.fill(features, 0.0f);
+
+        // Простая бинарная векторизация (в реальности используйте Word2Vec/BERT)
+        String[] words = cleaned.split("\\s+");
+        for (int i = 0; i < Math.min(words.length, features.length); i++) {
+            features[i] = words[i].hashCode() % 100 / 100.0f; // Простой хэш-признак
+        }
+
+        return features;
+    }
+
+    private String interpretONNXPrediction(float[] predictions) {
+        if (predictions == null || predictions.length < 3) {
+            return "neutral";
+        }
+
+        // Предполагаем, что модель выдает вероятности для [negative, neutral, positive]
+        int maxIndex = 0;
+        for (int i = 1; i < predictions.length; i++) {
+            if (predictions[i] > predictions[maxIndex]) {
+                maxIndex = i;
+            }
+        }
+
+        return switch (maxIndex) {
+            case 0 -> "negative";
+            case 1 -> "neutral";
+            case 2 -> "positive";
+            default -> "unknown";
+        };
+    }
+
+    @PreDestroy
+    public void cleanup() {
+        try {
+            if (session != null) {
+                session.close();
+                System.out.println("✅ ONNX session closed");
+            }
+            if (environment != null) {
+                environment.close();
+                System.out.println("✅ ONNX environment closed");
+            }
+        } catch (Exception e) {
+            System.err.println("Error cleaning up ONNX resources: " + e.getMessage());
+        }
+    }
+
+    public boolean isModelLoaded() {
+        return modelLoaded;
+    }
+}
