@@ -1,6 +1,7 @@
 package com.example.sentimentaiproject.model;
 
 import ai.onnxruntime.*;
+import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -20,6 +21,11 @@ public class SentimentModel {
 
     private OrtEnvironment environment;
     private OrtSession session;
+    /**
+     * -- GETTER --
+     *  Проверка загружена ли модель
+     */
+    @Getter
     private boolean modelLoaded = false;
 
     // Конфигурация модели
@@ -58,7 +64,6 @@ public class SentimentModel {
         try {
             // Препроцессинг текста
             float[] inputData = preprocessText(text);
-            long[] shape = {1, inputData.length};
 
             // Создание входного тензора
             OnnxTensor inputTensor = OnnxTensor.createTensor(environment, inputData);
@@ -84,7 +89,7 @@ public class SentimentModel {
      * Препроцессинг текста для модели
      */
     private float[] preprocessText(String text) {
-        // Упрощенный препроцессинг - в реальном проекте используйте нормализацию, токенизацию и т.д.
+
         String cleaned = text.toLowerCase()
                 .replaceAll("[^a-zA-Zа-яА-Я0-9\\s]", "")
                 .trim();
@@ -116,9 +121,9 @@ public class SentimentModel {
         }
 
         // Предполагаем формат выхода: [negative, neutral, positive]
-        float negativeScore = predictions.length > 0 ? predictions[0] : 0.0f;
-        float neutralScore = predictions.length > 1 ? predictions[1] : 0.0f;
-        float positiveScore = predictions.length > 2 ? predictions[2] : 0.0f;
+        float negativeScore = predictions[0];
+        float neutralScore = predictions[1];
+        float positiveScore = predictions[2];
 
         String sentiment;
         float confidence;
@@ -184,13 +189,6 @@ public class SentimentModel {
     }
 
     /**
-     * Проверка загружена ли модель
-     */
-    public boolean isModelLoaded() {
-        return modelLoaded;
-    }
-
-    /**
      * Получение информации о модели
      */
     public ModelInfo getModelInfo() {
@@ -221,50 +219,19 @@ public class SentimentModel {
 
     /**
      * Результат анализа тональности
+     *
+     * @param text Getters
      */
-    public static class SentimentResult {
-        private final String text;
-        private final String sentiment;
-        private final float confidence;
-        private final boolean modelUsed;
+        public record SentimentResult(String text, String sentiment, float confidence, boolean modelUsed) {
 
-        public SentimentResult(String text, String sentiment, float confidence, boolean modelUsed) {
-            this.text = text;
-            this.sentiment = sentiment;
-            this.confidence = confidence;
-            this.modelUsed = modelUsed;
-        }
-
-        // Getters
-        public String getText() { return text; }
-        public String getSentiment() { return sentiment; }
-        public float getConfidence() { return confidence; }
-        public boolean isModelUsed() { return modelUsed; }
     }
 
     /**
      * Информация о модели
+     *
+     * @param modelPath Getters
      */
-    public static class ModelInfo {
-        private final String modelPath;
-        private final boolean loaded;
-        private final int inputSize;
-        private final int numInputs;
-        private final int numOutputs;
+        public record ModelInfo(String modelPath, boolean loaded, int inputSize, int numInputs, int numOutputs) {
 
-        public ModelInfo(String modelPath, boolean loaded, int inputSize, int numInputs, int numOutputs) {
-            this.modelPath = modelPath;
-            this.loaded = loaded;
-            this.inputSize = inputSize;
-            this.numInputs = numInputs;
-            this.numOutputs = numOutputs;
-        }
-
-        // Getters
-        public String getModelPath() { return modelPath; }
-        public boolean isLoaded() { return loaded; }
-        public int getInputSize() { return inputSize; }
-        public int getNumInputs() { return numInputs; }
-        public int getNumOutputs() { return numOutputs; }
     }
 }

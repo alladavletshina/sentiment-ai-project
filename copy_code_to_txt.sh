@@ -9,7 +9,7 @@ if [[ -f "$output_file" ]]; then
 fi
 
 # Проходим по всем файлам проекта рекурсивно и добавляем их содержимое в all_code.txt
-for file in $(find . -name '*.java' -o -name '*.kt' -o -name '*.py' -o -name '*.go' -o -name '*.rb' -o -name '*.yaml' -o -name 'application.properties'  -o -name '*.xml'); do
+for file in $(find . -name '*.java' -o -name '*.kt' -o -name '*.py' -o -name '*.go' -o -name '*.rb' -o -name '*.yaml' -o -name 'application.properties'  -o -name '*.xml' -o -name 'Dockerfile'); do
     # Игнорируем двоичные файлы и скрытые папки типа ".git"
     if ! grep -qE '^\.(git|idea)' <<< "$file"; then
         echo "" >> "$output_file" # пустая строка между файлами
