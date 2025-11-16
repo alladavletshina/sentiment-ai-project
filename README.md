@@ -31,7 +31,7 @@ http
 #### Пример запроса:
 
 bash
-curl "http://localhost:8080/api/sentiment?text=I love this product, it's amazing!"
+- curl "http://localhost:8080/api/sentiment?text=I%20love%20this%20product%20it%20is%20amazing"
 
 #### Пример ответа:
 
@@ -45,20 +45,31 @@ json
 
 ## Проверка здоровья приложения
 http
-- GET /api/health
+- curl "http://localhost:8080/api/health"
   
 #### Ответ:
 
 json
 {
-  "status": "UP",
   "service": "Sentiment Analysis API",
-  "modelStatus": "LOADED"
+  "modelStatus": "LOADED",
+    "status": "UP"
 }
 
 ## Информация о модели
 http
-- GET /api/model/info
+- curl "http://localhost:8080/api/model/info"
+
+#### Пример ответа:
+
+json
+{
+   "numInputs":0,
+   "inputSize":128,
+   "modelPath":"model.onnx",
+   "modelLoaded":false,
+   "numOutputs":0
+}
   
 # ☸️ Развертывание в Kubernetes
 ## 1. Запуск Minikube кластера
