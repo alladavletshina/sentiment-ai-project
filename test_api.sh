@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 echo "🧪 Sentiment Analysis API - Comprehensive Test Suite"
 echo "==================================================="
