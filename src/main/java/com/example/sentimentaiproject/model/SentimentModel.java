@@ -1,187 +1,110 @@
 package com.example.sentimentaiproject.model;
 
-import ai.onnxruntime.*;
 import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
-import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Компонент для работы с ONNX моделью анализа тональности
+ * Компонент для mock-анализа тональности текста
  */
 @Component
 public class SentimentModel {
 
     private static final Logger logger = LoggerFactory.getLogger(SentimentModel.class);
 
-    private OrtEnvironment environment;
-    private OrtSession session;
     /**
      * -- GETTER --
-     *  Проверка загружена ли модель
+     *  Всегда false, так как используется mock-анализатор
      */
     @Getter
     private boolean modelLoaded = false;
 
-    // Конфигурация модели
-    private final String MODEL_PATH = "model.onnx";
-    private final int INPUT_SIZE = 128; // Размер входного вектора
+    // Словари ключевых слов для анализа тональности
+    private final String[] positiveWords = {
+            "good", "great", "excellent", "amazing", "happy", "love",
+            "awesome", "fantastic", "perfect", "wonderful", "best",
+            "beautiful", "brilliant", "outstanding", "superb", "nice",
+            "cool", "fantastic", "pleased", "delighted", "joy", "smile"
+    };
+
+    private final String[] negativeWords = {
+            "bad", "terrible", "horrible", "awful", "hate", "sad",
+            "worst", "disappointing", "poor", "unhappy", "angry",
+            "hateful", "disgusting", "annoying", "frustrating", "ugly",
+            "horrible", "dislike", "angry", "mad", "upset", "cry"
+    };
+
+    private final String[] neutralWords = {
+            "ok", "okay", "fine", "normal", "regular", "usual",
+            "standard", "average", "medium", "moderate", "decent"
+    };
 
     @PostConstruct
     public void init() {
-        try {
-            environment = OrtEnvironment.getEnvironment();
-
-            // Попытка загрузить модель из classpath
-            var modelUrl = getClass().getClassLoader().getResource(MODEL_PATH);
-            if (modelUrl != null) {
-                session = environment.createSession(modelUrl.getPath());
-                modelLoaded = true;
-                logger.info("✅ ONNX модель успешно загружена: {}", MODEL_PATH);
-            } else {
-                logger.warn("⚠️ ONNX модель не найдена: {}. Используется mock-анализатор", MODEL_PATH);
-                modelLoaded = false;
-            }
-        } catch (Exception e) {
-            logger.error("❌ Ошибка загрузки ONNX модели: {}", e.getMessage());
-            modelLoaded = false;
-        }
+        logger.info("✅ Mock-анализатор тональности инициализирован");
+        logger.info("📊 Загружено ключевых слов: {} положительных, {} отрицательных, {} нейтральных",
+                positiveWords.length, negativeWords.length, neutralWords.length);
     }
 
     /**
-     * Анализ тональности текста с использованием ONNX модели
+     * Анализ тональности текста с использованием ключевых слов
      */
     public SentimentResult analyzeWithModel(String text) {
-        if (!modelLoaded) {
-            return fallbackAnalysis(text);
-        }
-
-        try {
-            // Препроцессинг текста
-            float[] inputData = preprocessText(text);
-
-            // Создание входного тензора
-            OnnxTensor inputTensor = OnnxTensor.createTensor(environment, inputData);
-            Map<String, OnnxTensor> inputs = Collections.singletonMap("input", inputTensor);
-
-            // Выполнение инференса
-            try (OrtSession.Result results = session.run(inputs)) {
-                OnnxTensor outputTensor = (OnnxTensor) results.get(0);
-                float[] predictions = (float[]) outputTensor.getValue();
-
-                SentimentResult result = interpretModelOutput(predictions, text);
-                inputTensor.close();
-
-                return result;
-            }
-        } catch (Exception e) {
-            logger.error("Ошибка при анализе текста моделью: {}", e.getMessage());
-            return fallbackAnalysis(text);
-        }
+        return analyzeSentiment(text);
     }
 
     /**
-     * Препроцессинг текста для модели
+     * Основной метод анализа тональности
      */
-    private float[] preprocessText(String text) {
+    private SentimentResult analyzeSentiment(String text) {
+        String lowerText = text.toLowerCase().trim();
 
-        String cleaned = text.toLowerCase()
-                .replaceAll("[^a-zA-Zа-яА-Я0-9\\s]", "")
-                .trim();
-
-        float[] features = new float[INPUT_SIZE];
-
-        // Простая векторизация на основе хэшей слов
-        String[] words = cleaned.split("\\s+");
-        for (int i = 0; i < Math.min(words.length, INPUT_SIZE); i++) {
-            if (!words[i].isEmpty()) {
-                features[i] = (words[i].hashCode() % 1000) / 1000.0f;
-            }
-        }
-
-        // Заполнение оставшихся позиций
-        for (int i = words.length; i < INPUT_SIZE; i++) {
-            features[i] = 0.0f;
-        }
-
-        return features;
-    }
-
-    /**
-     * Интерпретация выхода модели
-     */
-    private SentimentResult interpretModelOutput(float[] predictions, String originalText) {
-        if (predictions == null || predictions.length < 3) {
-            return fallbackAnalysis(originalText);
-        }
-
-        // Предполагаем формат выхода: [negative, neutral, positive]
-        float negativeScore = predictions[0];
-        float neutralScore = predictions[1];
-        float positiveScore = predictions[2];
-
-        String sentiment;
-        float confidence;
-
-        if (positiveScore > negativeScore && positiveScore > neutralScore) {
-            sentiment = "positive";
-            confidence = positiveScore;
-        } else if (negativeScore > positiveScore && negativeScore > neutralScore) {
-            sentiment = "negative";
-            confidence = negativeScore;
-        } else {
-            sentiment = "neutral";
-            confidence = neutralScore;
-        }
-
-        return new SentimentResult(originalText, sentiment, confidence, true);
-    }
-
-    /**
-     * Резервный анализ на основе ключевых слов
-     */
-    private SentimentResult fallbackAnalysis(String text) {
-        String lowerText = text.toLowerCase();
-
-        // Расширенный словарь ключевых слов
-        String[] positiveWords = {"good", "great", "excellent", "amazing", "happy", "love",
-                "awesome", "fantastic", "perfect", "wonderful", "best",
-                "beautiful", "brilliant", "outstanding", "superb"};
-
-        String[] negativeWords = {"bad", "terrible", "horrible", "awful", "hate", "sad",
-                "worst", "disappointing", "poor", "unhappy", "angry",
-                "hateful", "disgusting", "annoying", "frustrating"};
-
-        // Подсчет совпадений
+        // Подсчет совпадений для каждой категории
         int positiveCount = countMatches(lowerText, positiveWords);
         int negativeCount = countMatches(lowerText, negativeWords);
+        int neutralCount = countMatches(lowerText, neutralWords);
 
+        // Определение тональности на основе максимального количества совпадений
         String sentiment;
         float confidence;
 
-        if (positiveCount > negativeCount) {
+        if (positiveCount > negativeCount && positiveCount > neutralCount) {
             sentiment = "positive";
-            confidence = Math.min(positiveCount / 10.0f, 1.0f);
-        } else if (negativeCount > positiveCount) {
+            confidence = calculateConfidence(positiveCount, text.length());
+        } else if (negativeCount > positiveCount && negativeCount > neutralCount) {
             sentiment = "negative";
-            confidence = Math.min(negativeCount / 10.0f, 1.0f);
-        } else {
+            confidence = calculateConfidence(negativeCount, text.length());
+        } else if (neutralCount > 0 && neutralCount >= positiveCount && neutralCount >= negativeCount) {
             sentiment = "neutral";
-            confidence = 0.5f;
+            confidence = calculateConfidence(neutralCount, text.length());
+        } else {
+            // Если нет явных совпадений, анализируем общий тон
+            sentiment = analyzeGeneralTone(lowerText);
+            confidence = 0.3f; // Низкая уверенность для общего анализа
         }
+
+        // Корректировка уверенности на основе длины текста
+        confidence = adjustConfidenceByTextLength(confidence, text.length());
 
         return new SentimentResult(text, sentiment, confidence, false);
     }
 
+    /**
+     * Подсчет совпадений слов в тексте
+     */
     private int countMatches(String text, String[] words) {
         int count = 0;
         for (String word : words) {
-            if (text.contains(word)) {
+            // Ищем целые слова, а не части слов
+            if (text.contains(" " + word + " ") ||
+                    text.startsWith(word + " ") ||
+                    text.endsWith(" " + word) ||
+                    text.equals(word)) {
                 count++;
             }
         }
@@ -189,49 +112,85 @@ public class SentimentModel {
     }
 
     /**
-     * Получение информации о модели
+     * Расчет уверенности на основе количества совпадений и длины текста
      */
-    public ModelInfo getModelInfo() {
-        return new ModelInfo(
-                MODEL_PATH,
-                modelLoaded,
-                INPUT_SIZE,
-                Math.toIntExact(session != null ? session.getNumInputs() : 0),
-                Math.toIntExact(session != null ? session.getNumOutputs() : 0)
-        );
+    private float calculateConfidence(int matchCount, int textLength) {
+        if (textLength == 0) return 0.0f;
+
+        float baseConfidence = (float) matchCount / (textLength / 10.0f + 1);
+        return Math.min(baseConfidence, 0.95f); // Ограничиваем максимальную уверенность
     }
 
-    @PreDestroy
-    public void cleanup() {
-        try {
-            if (session != null) {
-                session.close();
-                logger.info("✅ ONNX сессия закрыта");
-            }
-            if (environment != null) {
-                environment.close();
-                logger.info("✅ ONNX окружение закрыто");
-            }
-        } catch (Exception e) {
-            logger.error("Ошибка при очистке ресурсов модели: {}", e.getMessage());
+    /**
+     * Анализ общего тона текста (если нет явных ключевых слов)
+     */
+    private String analyzeGeneralTone(String text) {
+        // Простой анализ на основе знаков препинания и общих паттернов
+        if (text.contains("!") && text.contains("?")) {
+            return "surprised";
+        } else if (text.contains("!")) {
+            return "excited";
+        } else if (text.contains("?")) {
+            return "curious";
+        } else if (text.length() < 10) {
+            return "neutral";
+        } else {
+            // Случайный выбор для разнообразия в демонстрационных целях
+            String[] options = {"neutral", "slightly_positive", "slightly_negative"};
+            int randomIndex = (text.hashCode() % options.length + options.length) % options.length;
+            return options[randomIndex];
         }
     }
 
     /**
-     * Результат анализа тональности
-     *
-     * @param text Getters
+     * Корректировка уверенности на основе длины текста
      */
-        public record SentimentResult(String text, String sentiment, float confidence, boolean modelUsed) {
-
+    private float adjustConfidenceByTextLength(float confidence, int textLength) {
+        if (textLength < 5) {
+            return confidence * 0.5f; // Низкая уверенность для коротких текстов
+        } else if (textLength > 100) {
+            return confidence * 1.1f; // Высокая уверенность для длинных текстов
+        }
+        return confidence;
     }
 
     /**
-     * Информация о модели
-     *
-     * @param modelPath Getters
+     * Получение информации о "модели" (теперь это mock-анализатор)
      */
-        public record ModelInfo(String modelPath, boolean loaded, int inputSize, int numInputs, int numOutputs) {
+    public ModelInfo getModelInfo() {
+        return new ModelInfo(
+                "mock-sentiment-analyzer",
+                false, // Всегда false для mock-реализации
+                0,     // Нет размера входа
+                1,     // Один вход - текст
+                1      // Один выход - тональность
+        );
+    }
 
+    /**
+     * Получение статистики по словарям (для отладки и мониторинга)
+     */
+    public Map<String, Object> getAnalyzerStats() {
+        Map<String, Object> stats = new HashMap<>();
+        stats.put("positiveWordsCount", positiveWords.length);
+        stats.put("negativeWordsCount", negativeWords.length);
+        stats.put("neutralWordsCount", neutralWords.length);
+        stats.put("analyzerType", "keyword-based");
+        stats.put("version", "1.0.0");
+        return stats;
+    }
+
+    /**
+     * Результат анализа тональности
+     */
+    public record SentimentResult(String text, String sentiment, float confidence, boolean modelUsed) {
+        // modelUsed всегда false для mock-реализации
+    }
+
+    /**
+     * Информация о "модели"
+     */
+    public record ModelInfo(String modelPath, boolean loaded, int inputSize, int numInputs, int numOutputs) {
+        // Всегда возвращает информацию о mock-анализаторе
     }
 }
