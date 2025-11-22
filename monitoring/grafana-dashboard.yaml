@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sentiment-ai-dashboard
+  namespace: monitoring
+  labels:
+    grafana_dashboard: "1"
+data:
+  sentiment-ai-dashboard.json: |-
+    {
+      "dashboard": {
+        "id": null,
+        "title": "Sentiment AI Monitoring",
+        "tags": ["sentiment", "spring-boot"],
+        "timezone": "browser",
+        "panels": [
+          {
+            "id": 1,
+            "title": "Requests Rate",
+            "type": "stat",
+            "targets": [
+              {
+                "expr": "rate(sentiment_analysis_counter_total[5m])",
+                "legendFormat": "requests/sec"
+              }
+            ],
+            "gridPos": {"h": 8, "w": 12, "x": 0, "y": 0}
+          }
+        ]
+      }
+    }

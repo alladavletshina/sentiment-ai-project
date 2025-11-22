@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-additional-config
+  namespace: monitoring
+data:
+  additional-scrape-configs.yaml: |
+    - job_name: 'sentiment-ai-app'
+      scrape_interval: 15s
+      metrics_path: '/actuator/prometheus'
+      static_configs:
+        - targets: ['sentiment-ai-service.default.svc.cluster.local:80']
+      scheme: http
+      scrape_timeout: 10s
